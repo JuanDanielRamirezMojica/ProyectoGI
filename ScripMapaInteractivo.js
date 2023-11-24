@@ -216,11 +216,12 @@ var jugando = {
 
 // Crear una instancia de Hammer para gestionar eventos táctiles en el canvas del juego
 var hammertime = new Hammer(this.game.canvas, {
-    touchAction: 'auto', // Configurar la acción táctil como 'auto'
-    recognizers: [
-        [Hammer.Pan, { direction: Hammer.DIRECTION_ALL }] // Habilitar el reconocimiento de gestos de desplazamiento en todas las direcciones
-    ]
+  touchAction: 'pan-y',
+  recognizers: [
+      [Hammer.Pan, { direction: Hammer.DIRECTION_ALL }]
+  ]
 });
+
 
 
 // Definir la escala para todos los botones
@@ -401,24 +402,46 @@ boton1.events.onInputUp.add(function () {    // Ocultar la foto y el cuadro
         grupoFondos.y += 5; // Desplazar el grupoFondos hacia abajo
         moverBotones(0, 5); // Mover los botones en la dirección opuesta
     }
+
+    if (juego.input.pointer1.isDown) {
+      // Obtener la posición actual del puntero táctil
+      var x = juego.input.x;
+      var y = juego.input.y;}
+
+
+
 },
+
 
 // Manejar eventos de gestos táctiles de desplazamiento (pan)
 handlePan: function (event) {
   // Verificar si hay un cambio en las coordenadas deltaX o deltaY
-  if (event.deltaX !== 0 || event.deltaY !== 0) {
-      // Reducir la velocidad del desplazamiento multiplicando por un factor (-0.05)
-      let deltaX = event.deltaX * -0.05;
-      let deltaY = event.deltaY * -0.05;
+  if ((event.deltaX !== 0 || event.deltaY !== 0)) {
+      // Invertir la dirección del desplazamiento multiplicando por un factor (0.05)
+      let deltaX = event.deltaX * 0.05;
+      let deltaY = event.deltaY * 0.05;
 
-      // Actualizar la posición del grupoFondos basándose en los cambios de desplazamiento
-      grupoFondos.x += deltaX;
-      grupoFondos.y += deltaY;
+      // Obtener las nuevas posiciones después del desplazamiento
+      let newPosX = grupoFondos.x + deltaX;
+      let newPosY = grupoFondos.y + deltaY;
 
-      // Mover los botones en la dirección opuesta al desplazamiento del fondo
-      moverBotones(deltaX, deltaY);
+      // Verificar si las nuevas posiciones están dentro de los límites
+      if (newPosX > -grupoFondos.width + juego.width && newPosX < 0) {
+          grupoFondos.x = newPosX;
+          // Mover los botones en la dirección opuesta al desplazamiento del fondo
+          moverBotones(deltaX, 0);
+      }
+
+      if (newPosY > -grupoFondos.height + juego.height && newPosY < 0) {
+          grupoFondos.y = newPosY;
+          // Mover los botones en la dirección opuesta al desplazamiento del fondo
+          moverBotones(0, deltaY);
+      }
   }
 }
+
+
+
 
   
 };
