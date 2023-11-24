@@ -185,6 +185,28 @@ var jugando = {
 
     juego.scale.scaleMode = Phaser.ScaleManager.RESIZE;
 
+// Agregar soporte para dispositivos táctiles
+juego.input.addPointer();
+juego.input.addPointer();
+
+juego.input.onDown.add(() => {
+  juego.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
+  juego.scale.startFullScreen();
+});
+
+// Permitir arrastrar (drag) en dispositivos táctiles
+grupoFondos.inputEnabled = true;
+grupoFondos.input.enableDrag();
+grupoFondos.input.allowHorizontalDrag = true;
+grupoFondos.input.allowVerticalDrag = true;
+
+grupoFondos.events.onDragUpdate.add(function () {
+  // Mover botones junto con el grupo de fondos
+  moverBotones(grupoFondos.input.speed.x, grupoFondos.input.speed.y);
+});
+    
+
+    
     juego.input.onDown.add(() => {
       juego.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
       juego.scale.startFullScreen();
