@@ -95,18 +95,18 @@ var jugando = {
     // Crear botones para cada ubicación en el mapa
     boton1 = juego.add.button(190, 300, "botones"); /* Aeropuerto */
     boton2 = juego.add.button(2290, 155, "botones"); /* Mansión Wayne */
-    boton3 = juego.add.button(juego.world.width * 0.88, juego.world.height * 3, "botones"); /* Parque Robinson */
-    boton4 = juego.add.button(juego.world.width * 0.77, juego.world.height * 1.85, "botones"); /* Arkham */
-    boton5 = juego.add.button(juego.world.width * 1.48, juego.world.height * 1.65, "botones"); /* Teatro Monarch */
-    boton6 = juego.add.button(juego.world.width * 1.28, juego.world.height * 2.62, "botones"); /* Ace Chemicals*/
-    boton7 = juego.add.button(juego.world.width * 1.38, juego.world.height * 2.92, "botones"); /* Iceberg */
-    boton8 = juego.add.button(juego.world.width * 1.1, juego.world.height * 4.2, "botones"); /* GCPD */
-    boton9 = juego.add.button(juego.world.width * 1.35, juego.world.height * 5.5, "botones"); /* Blackgate */
-    boton10 = juego.add.button(juego.world.width * 0.85, juego.world.height * 4.25, "botones"); /* Torre Wayne */
+    boton3 = juego.add.button(1300,2000, "botones"); /* Parque Robinson */
+    boton4 = juego.add.button(980, 1180, "botones"); /* Arkham */
+    boton5 = juego.add.button(1950, 1050, "botones"); /* Teatro Monarch */
+    boton6 = juego.add.button(1750, 1650, "botones"); /* Ace Chemicals*/
+    boton7 = juego.add.button(1885,1850, "botones"); /* Iceberg */
+    boton8 = juego.add.button(1490, 2650, "botones"); /* GCPD */
+    boton9 = juego.add.button(1825, 3450, "botones"); /* Blackgate */
+    boton10 = juego.add.button(1100, 2650, "botones"); /* Torre Wayne */
   
         
     // Crear un cuadro (gráfico) en la posición específica con opacidad
-    cuadro = juego.add.graphics(juego.world.width * 0.2, juego.world.height * 0.22);
+    cuadro = juego.add.graphics(200, 350);
     cuadro.beginFill(0x003e4b, 0.8); // Rellenar el cuadro con un color y opacidad específicos (azul oscuro con opacidad 0.8)
     cuadro.drawRect(0, 0, 180, 50); // Dibujar un rectángulo en el cuadro con dimensiones específicas (180x50)
     cuadro.endFill(); // Finalizar el proceso de llenado
@@ -116,63 +116,63 @@ var jugando = {
     // Esto se repide para los cuadrosde 2 al 10:
 
     // Igual al primero pero con distancias diferentes:
-    cuadro2 = juego.add.graphics(juego.world.width * 0.35, juego.world.height * 0.22);
+    cuadro2 = juego.add.graphics(200, 350);
     cuadro2.beginFill(0x003e4b, 0.8);
     cuadro2.drawRect(0, 0, 180, 50);
     cuadro2.endFill();
     cuadro2.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro3 = juego.add.graphics(juego.world.width * 0.35, juego.world.height * 0.22);
+    cuadro3 = juego.add.graphics(200, 420);
     cuadro3.beginFill(0x003e4b, 0.8);
     cuadro3.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro3.endFill();
     cuadro3.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro4 = juego.add.graphics(juego.world.width * 0.52, juego.world.height * 0.22);
+    cuadro4 = juego.add.graphics(200, 380);
     cuadro4.beginFill(0x003e4b, 0.8);
     cuadro4.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro4.endFill();
     cuadro4.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro5 = juego.add.graphics(juego.world.width * 0.35, juego.world.height * 0.22);
+    cuadro5 = juego.add.graphics(200, 350);
     cuadro5.beginFill(0x003e4b, 0.8);
     cuadro5.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro5.endFill();
     cuadro5.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro6 = juego.add.graphics(juego.world.width * 0.40, juego.world.height * 0.22);
+    cuadro6 = juego.add.graphics(200, 420);
     cuadro6.beginFill(0x003e4b, 0.8);
     cuadro6.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro6.endFill();
     cuadro6.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro7 = juego.add.graphics(juego.world.width * 0.38, juego.world.height * 0.22);
+    cuadro7 = juego.add.graphics(200, 350);
     cuadro7.beginFill(0x003e4b, 0.8);
     cuadro7.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro7.endFill();
     cuadro7.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro8 = juego.add.graphics(juego.world.width * 0.4, juego.world.height * 0.22);
+    cuadro8 = juego.add.graphics(200, 400);
     cuadro8.beginFill(0x003e4b, 0.8);
     cuadro8.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro8.endFill();
     cuadro8.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro9 = juego.add.graphics(juego.world.width * 0.32, juego.world.height * 0.22);
+    cuadro9 = juego.add.graphics(200, 400);
     cuadro9.beginFill(0x003e4b, 0.8);
     cuadro9.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro9.endFill();
     cuadro9.visible = false;
 
     // Igual al primero pero con distancias diferentes:
-    cuadro10 = juego.add.graphics(juego.world.width * 0.38, juego.world.height * 0.22);
+    cuadro10 = juego.add.graphics(200, 400);
     cuadro10.beginFill(0x003e4b, 0.8);
     cuadro10.drawRect(0, 0, 180, 50); // Ajusta el tamaño del cuadro
     cuadro10.endFill();
@@ -297,8 +297,8 @@ boton1.events.onInputUp.add(function () {    // Ocultar la foto y el cuadro
     
 
     /* Se les dice que foto corresponde a que variable */
-    foto1 = juego.add.sprite(530, 80, "fotouno");
-    foto1.scale.setTo(0.55);
+    foto1 = juego.add.sprite(180, 80, "fotouno");
+    foto1.scale.setTo(0.4);
     foto1.visible = false; /* Se pone la foto originalmente cómo escondida */
     
 
@@ -308,12 +308,12 @@ boton1.events.onInputUp.add(function () {    // Ocultar la foto y el cuadro
     foto2.visible = false;
 
     foto3 = juego.add.sprite(180, 80, "fototres");
-    foto3.scale.setTo(0.45);
+    foto3.scale.setTo(0.4);
     foto3.visible = false;
 
 
     foto4 = juego.add.sprite(180, 80, "fotocuatro");
-    foto4.scale.setTo(0.5);
+    foto4.scale.setTo(0.35);
     foto4.visible = false;
 
 
@@ -323,7 +323,7 @@ boton1.events.onInputUp.add(function () {    // Ocultar la foto y el cuadro
 
 
     foto6 = juego.add.sprite(180, 80, "fotoseis");
-    foto6.scale.setTo(0.3);
+    foto6.scale.setTo(0.25);
     foto6.visible = false;
 
 
@@ -332,11 +332,11 @@ boton1.events.onInputUp.add(function () {    // Ocultar la foto y el cuadro
     foto7.visible = false;
 
     foto8 = juego.add.sprite(180, 80, "fotoocho");
-    foto8.scale.setTo(0.4);
+    foto8.scale.setTo(0.35);
     foto8.visible = false;
 
     foto9 = juego.add.sprite(180, 80, "fotonueve");
-    foto9.scale.setTo(0.8);
+    foto9.scale.setTo(0.75);
     foto9.visible = false;
 
 
