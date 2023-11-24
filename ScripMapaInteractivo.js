@@ -93,8 +93,8 @@ var jugando = {
     fondo3 = grupoFondos.create(0, 2670, "imgfondo3");
 
     // Crear botones para cada ubicación en el mapa
-    boton1 = juego.add.button(juego.world.width * 0.135, juego.world.height * 0.45, "botones"); /* Aeropuerto */
-    boton2 = juego.add.button(juego.world.width * 1.60, juego.world.height * 0.15, "botones"); /* Mansión Wayne */
+    boton1 = juego.add.button(190, 300, "botones"); /* Aeropuerto */
+    boton2 = juego.add.button(2290, 155, "botones"); /* Mansión Wayne */
     boton3 = juego.add.button(juego.world.width * 0.88, juego.world.height * 3, "botones"); /* Parque Robinson */
     boton4 = juego.add.button(juego.world.width * 0.77, juego.world.height * 1.85, "botones"); /* Arkham */
     boton5 = juego.add.button(juego.world.width * 1.48, juego.world.height * 1.65, "botones"); /* Teatro Monarch */
