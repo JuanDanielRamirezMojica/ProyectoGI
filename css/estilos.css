@@ -846,6 +846,19 @@ h1{
     font-weight: 600;
 }
 
+.Creditos p{
+    font-size: 125%;
+    text-align: justify;
+    margin: 5%;
+}
+
+.Creditos p2{
+    font-size: 135%;
+    text-align: justify;
+    margin: 5%;
+    font-weight: 800;
+}
+
 /* Estilo de párrafos dentro de la clase Creditos */
 .Creditos p4{ /* Nota: Debería ser ".Creditos p", ya que no existe p4 */
     color: #fff; /* Color de texto blanco */
@@ -931,7 +944,7 @@ h3{
 .ClaseMapaInteractivo{
 
     width: 100%;
-    font-size: 55px; /* Tamaño de fuente grande */
+    font-size: 100%; /* Tamaño de fuente grande */
     font-weight: 400; /* Grosor de fuente normal */
     height: auto;
     margin: auto;
@@ -941,7 +954,7 @@ h3{
 }
 
 .ClaseMapaInteractivo h1{
-font-size: 55px; /* Tamaño de fuente grande */
+font-size: 220%; /* Tamaño de fuente grande */
 font-weight: 400; /* Grosor de fuente normal */
 text-align: center;
 }
@@ -949,9 +962,9 @@ text-align: center;
 
 /* Estilo para los párrafos del mapa interactivo */
 .ClaseMapaInteractivo p {
-    font-size: 20px; /* Tamaño de fuente */
+    font-size: 120%; /* Tamaño de fuente */
     font-weight: 300; /* Grosor de fuente normal */
-    text-align: center;
+    text-align: justify;
 }
 
 

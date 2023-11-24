@@ -4,16 +4,31 @@
 <html lang="es">
 
 <head>
+    <!-- Definir la codificación de caracteres -->
     <meta charset="UTF-8">
+    <!-- Definir el idioma de la página -->
     <meta lang="es">
+    <!-- Título de la página -->
     <title>Proyecto GI - Entrega 2 JDRM</title>
+    <!-- Enlazar la hoja de estilos externa -->
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
+    <!-- Configurar la visualización inicial y la escalabilidad para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <!-- Establecer el ícono de la página -->
     <link rel="icon" href="imagenes/Logo2.png" type="image/x-icon">
+
+
+
+    <!-- Incluir la biblioteca Phaser.js -->
     <script src="phaser.js"></script>
-     <script src="ScripMapaInteractivo.js"></script>
-     <script src="Hammer.js"></script>
+
+    <!-- Incluir el script ScripMapaInteractivo.js -->
+    <script src="ScripMapaInteractivo.js"></script>
+
+    <!-- Incluir la biblioteca Hammer.js para el manejo de gestos táctiles -->
+    <script src="Hammer.js"></script>
 </head>
+
 
 <body>
 
@@ -21,10 +36,6 @@
 <div class="content-container">
 	<section class = "header2">
 		<nav>
-		    <!-- <header><!-- el elemento header incluye el menu desplegable y el ícono que lo despliega -->
-            <!-- <input type="checkbox" id="btn-menu"><!-- checkbox permite la opción boleana -->
-            <!--<label for="btn-menu"><img src="imagenes/menu.png" width="10px"></label>
-            <!-- la imagen del ícono se muestra como label del checkbox pero se oculta cuando no se necesita -->
 			<input type="checkbox" id="menu-btn">
 			<label for="menu-btn" class="menu-icon">☰</label>
 
@@ -75,17 +86,24 @@
         <div class="HistoriaText">
         <div id="MapGen">
             <div class="ClaseMapaInteractivo">
+            <br>
                     <h1>Mapa General</h1>
-                     <p><br>Este es el mapa xd:<br><br></p> 
+                     <p><br>A continuación, te presentamos nuevamente el mapa de Ciudad Gótica. No olvides explorar los emocionantes lugares marcados y utilízalo como guía en caso de extravío. Descubre cada rincón de esta metrópolis llena de misterios y sorpresas. ¡Que tu aventura comience con cada clic en nuestro detallado mapa! Además, más abajo encontrarás un mapa interactivo que puede ser de tu interés. ¡No dudes en sumergirte en la experiencia y descubrir todo lo que la ciudad tiene para ofrecer!<br><br></p> 
                     <img src="imagenes/InteractiveMap.png" alt="Mapa de Gotham." /> 
                     
 
 
                     <div id="MapInt">
+                    <br>
+                    <br>
                         <h1>Mapa Interactivo</h1>
+                        <br>
                         <!-- Java Scrip Mapa Interactivo -->
-                        <p>A continuación, se encuentra un mapa interactivo de ciudad. Descubre los fascinantes puntos de interés haciendo clic en los símbolos de Batman. ¡Sumérgete en la ciudad y desentraña sus misterios!</p>
-                         <div class="MapaInteractivo" id="MapaInteractivoph"></div>  
+                        <p>¿Te gustaría buscar a Batman en las calles de Gotham? Sigue sus huellas y quién sabe, ¡puede que te lo encuentres en persona! Nuestro mapa interactivo destaca los lugares donde ha aparecido con mayor frecuencia este año. Haz clic en los íconos de Batman para descubrir los puntos exactos y cuántas veces ha sido avistado. ¡Embárcate en esta emocionante búsqueda del Caballero Oscuro!</p> 
+                        
+                        <p>Nota: Si estás utilizando un dispositivo móvil, como un celular, utiliza la pantalla táctil para desplazarte por el mapa y explorar los puntos de interés de Gotham. En caso de que estés en una computadora, utiliza las teclas de dirección para navegar por el mapa de manera eficiente. ¡Disfruta de la experiencia de búsqueda, ya sea deslizando tus dedos o utilizando las teclas en tu exploración!</p> 
+                        <br>
+                        <div class="MapaInteractivo" id="MapaInteractivoph"></div>  
 
                     </div>        
                 </div>
