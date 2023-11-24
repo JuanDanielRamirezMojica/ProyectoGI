@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="es">
+    <title>Proyecto GI - Entrega 2 JDRM</title>
+    <link href="css/estilos.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="icon" href="imagenes/Logo2.png" type="image/x-icon">
+    <script src="phaser.js"></script>
+     <script src="ScripMapaInteractivo.js"></script>
+</head>
+
+<body>
+
+
+<div class="content-container">
+	<section class = "header2">
+		<nav>
+		    <!-- <header><!-- el elemento header incluye el menu desplegable y el ícono que lo despliega -->
+            <!-- <input type="checkbox" id="btn-menu"><!-- checkbox permite la opción boleana -->
+            <!--<label for="btn-menu"><img src="imagenes/menu.png" width="10px"></label>
+            <!-- la imagen del ícono se muestra como label del checkbox pero se oculta cuando no se necesita -->
+			<input type="checkbox" id="menu-btn">
+			<label for="menu-btn" class="menu-icon">☰</label>
+
+			<div class="nav-links">
+				<ul> <!-- los botones son elementos de una lista que define el menu pero mantiene el mismo diseño de cada botón, la posición de esta lista depende del estado del checkbox-->
+					<li><a href="Index.html" target="_self">Inicio</a></li>
+					<li><a href="EspacioFisico.html" target="_self">Espacio Físico</a></li>
+					<li><a href="Historia.html" target="_self">Historia</a></li> 
+					<li><a href="Personajes.html" target="_self">Personajes</a></li>
+					<li><a href="Actividades.html" target="_self">Actividades</a></li>
+                    <li><a href="MapaInteractivo.html" target="_self">Mapa</a></li>
+					<li><a href="Creditos.html" target="_self">Créditos</a></li> 
+				</ul>
+			</div>
+		</nav>
+
+
+     <!--</header>-->
+	<div class = "Texto-Index-1">
+	    <h1>Mapa Interactivo</h1>  
+	    <br>
+		<br>
+		<p> ¡Bienvenido a Gotham! <br> <br> <br> Explora Gotham con este mapa interactivo.<br> Descubre puntos de interés y sumérgete en las leyendas de esta ciudad única.</p><br>
+		
+		<a href="Creditos.html" target="_self" class="Index-Btn CursorMurcielago">Fuentes y bibliografía</a>
+		
+	</div>
+
+	</section>
+
+	<br>
+	<br>
+
+<!-- Menú de navegación dentro de la página-->
+<nav class="minimenu">
+	<h2>Seleccionar</h2>
+    <ul>
+        <li><a href="#MapGen">Mapa General</a></li>
+        <li><a href="#MapInt">Mapa Interactivo</a></li>
+    </ul>
+</nav>
+
+
+
+    <!-- L -->
+
+    <section class="HistoriaText">
+        <div class="HistoriaText">
+        <div id="MapGen">
+            <div class="ClaseMapaInteractivo">
+                    <h1>Mapa General</h1>
+                     <p><br>Este es el mapa xd:<br><br></p> 
+                    <img src="imagenes/InteractiveMap.png" alt="Mapa de Gotham." /> 
+                    
+
+
+                    <div id="MapInt">
+                        <h1>Mapa Interactivo</h1>
+                        <!-- Java Scrip Mapa Interactivo -->
+                        <p>A continuación, se encuentra un mapa interactivo de ciudad. Descubre los fascinantes puntos de interés haciendo clic en los símbolos de Batman. ¡Sumérgete en la ciudad y desentraña sus misterios!</p>
+                         <div class="MapaInteractivo" id="MapaInteractivoph"></div>  
+
+                    </div>        
+                </div>
+            </div>
+
+            <a href="MapaInteractivo.html" target="_self" class="boton-regreso CursorMurcielago">Volver al Inicio</a>
+        </div>
+    </section>
+
+    <div class="footer">
+        <h> Presentado por: Juan Daniel Ramírez Mojica<br></h>
+        <h>Correo electrónico: juaramirezmo@unal.edu.co<br></h>
+        <h>Universidad Nacional de Colombia<br></h>
+        <h>Noviembre del 2023</h>
+    </div>
+
+</body>
+
+</html>
