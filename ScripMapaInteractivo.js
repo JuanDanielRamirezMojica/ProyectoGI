@@ -2,7 +2,7 @@ var juego = new Phaser.Game("100%", "100%", Phaser.CANVAS, "MapaInteractivoph");
 
 var grupoFondos;
 
-/*Variable botones*/
+/* Variable botones */
 var boton1;
 var boton2;
 var boton3;
@@ -13,6 +13,8 @@ var boton7;
 var boton8;
 var boton9;
 var boton10;
+
+var pointerInicial;
 
 /* Variables fotos */
 var foto1;
@@ -37,11 +39,11 @@ var jugando = {
     juego.load.image("imgfondo2", "imagenes/InteractiveMap2.png");
     juego.load.image("imgfondo3", "imagenes/InteractiveMap3.png");
 
-    juego.load.image("botones", "imagenes/play.png"); 
+    juego.load.image("botones", "imagenes/play.png");
     juego.load.image("fotouno", "imagenes/Airport.jpg"); /* Aeropuerto */
     juego.load.image("fotodos", "imagenes/WayneManor.jpg"); /* Mansión Wayne */
-    juego.load.image("fototres", "imagenes/RobinsonPark.jpg"); /* Parque RObinson */
-    juego.load.image("fotocuatro", "imagenes/ArkhamA.jpg"); /* Arkaham */
+    juego.load.image("fototres", "imagenes/RobinsonPark.jpg"); /* Parque Robinson */
+    juego.load.image("fotocuatro", "imagenes/ArkhamA.jpg"); /* Arkham */
     juego.load.image("fotocinco", "imagenes/Monarch.jpg"); /* Teatro Monarch */
     juego.load.image("fotoseis", "imagenes/ACE.jpg"); /* Ace Chemicals*/
     juego.load.image("fotosiete", "imagenes/IcebergL.png"); /* Iceberg */
@@ -56,17 +58,26 @@ var jugando = {
     fondo2 = grupoFondos.create(0, 1333, "imgfondo2");
     fondo3 = grupoFondos.create(0, 2670, "imgfondo3");
 
-    // Botones adaptados al tamaño de la pantalla
     boton1 = juego.add.button(juego.world.width * 0.135, juego.world.height * 0.45, "botones"); /* Aeropuerto */
     boton2 = juego.add.button(juego.world.width * 1.60, juego.world.height * 0.15, "botones"); /* Mansión Wayne */
-    boton3 = juego.add.button(juego.world.width * 0.88, juego.world.height * 3, "botones"); /* Parque RObinson */
-    boton4 = juego.add.button(juego.world.width * 0.77, juego.world.height * 1.85, "botones"); /* Arkaham */
+    boton3 = juego.add.button(juego.world.width * 0.88, juego.world.height * 3, "botones"); /* Parque Robinson */
+    boton4 = juego.add.button(juego.world.width * 0.77, juego.world.height * 1.85, "botones"); /* Arkham */
     boton5 = juego.add.button(juego.world.width * 1.48, juego.world.height * 1.65, "botones"); /* Teatro Monarch */
     boton6 = juego.add.button(juego.world.width * 1.28, juego.world.height * 2.62, "botones"); /* Ace Chemicals*/
     boton7 = juego.add.button(juego.world.width * 1.38, juego.world.height * 2.92, "botones"); /* Iceberg */
     boton8 = juego.add.button(juego.world.width * 1.1, juego.world.height * 4.2, "botones"); /* GCPD */
     boton9 = juego.add.button(juego.world.width * 1.35, juego.world.height * 5.5, "botones"); /* Blackgate */
     boton10 = juego.add.button(juego.world.width * 0.85, juego.world.height * 4.25, "botones"); /* Torre Wayne */
+
+
+    var hammertime = new Hammer(this.game.canvas, {
+      touchAction: 'auto',
+      recognizers: [
+          [Hammer.Pan, { direction: Hammer.DIRECTION_ALL }]
+      ]
+  });
+
+
     // Escala de botones
     var buttonScale = 0.08;
     boton1.anchor.setTo(0.5);
@@ -178,6 +189,7 @@ var jugando = {
     foto10.visible = false;
 
 
+
     flechaderecha = juego.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
     flechaizquierda = juego.input.keyboard.addKey(Phaser.Keyboard.LEFT);
     flechaarriba = juego.input.keyboard.addKey(Phaser.Keyboard.DOWN);
@@ -185,34 +197,17 @@ var jugando = {
 
     juego.scale.scaleMode = Phaser.ScaleManager.RESIZE;
 
-// Agregar soporte para dispositivos táctiles
-juego.input.addPointer();
-juego.input.addPointer();
-
-juego.input.onDown.add(() => {
-  juego.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
-  juego.scale.startFullScreen();
-});
-
-// Permitir arrastrar (drag) en dispositivos táctiles
-grupoFondos.inputEnabled = true;
-grupoFondos.input.enableDrag();
-grupoFondos.input.allowHorizontalDrag = true;
-grupoFondos.input.allowVerticalDrag = true;
-
-grupoFondos.events.onDragUpdate.add(function () {
-  // Mover botones junto con el grupo de fondos
-  moverBotones(grupoFondos.input.speed.x, grupoFondos.input.speed.y);
-});
-    
-
-    
     juego.input.onDown.add(() => {
       juego.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
       juego.scale.startFullScreen();
     });
 
-    
+    this.hammer = new Hammer(juego.canvas);
+
+        this.hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+
+        this.hammer.on('pan', this.handlePan.bind(this));
+
   },
 
   update: function () {
@@ -233,15 +228,28 @@ grupoFondos.events.onDragUpdate.add(function () {
       moverBotones(0, 5);
     }
   },
+
+  handlePan: function (event) {
+    if (event.deltaX !== 0 || event.deltaY !== 0) {
+        let deltaX = event.deltaX * -0.05;
+        let deltaY = event.deltaY * -0.05;
+
+        grupoFondos.x += deltaX;
+        grupoFondos.y += deltaY;
+
+        moverBotones(deltaX, deltaY);
+    }
+}
+
+  
 };
 
 juego.state.add("activo", jugando);
 juego.state.start("activo");
 
 function moverBotones(deltaX, deltaY) {
-    boton1.position.x += deltaX;
-    boton1.position.y += deltaY;
-
+  boton1.position.x += deltaX;
+  boton1.position.y += deltaY;
     boton2.position.x += deltaX;
     boton2.position.y += deltaY;
 
@@ -268,5 +276,4 @@ function moverBotones(deltaX, deltaY) {
 
     boton10.position.x += deltaX;
     boton10.position.y += deltaY;
-
-  }
+}
